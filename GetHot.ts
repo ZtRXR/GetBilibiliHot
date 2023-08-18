@@ -2,12 +2,12 @@ import axios from "axios";
 
 const maxLimits:number = 50;
 
-class aBilihot{
-    keyword:string = ""
-    showname:string = ""
-    icon:string = ""
-    uri:string = ""
-    goto:string =""
+interface aBilihot{
+    keyword:string 
+    showname:string 
+    icon:string 
+    uri:string 
+    goto:string 
 }
 
 export const searchStr = `https://api.bilibili.com/x/web-interface/wbi/search/square`
