@@ -15,15 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BiliHot = exports.searchStr = void 0;
 const axios_1 = __importDefault(require("axios"));
 const maxLimits = 50;
-class aBilihot {
-    constructor() {
-        this.keyword = "";
-        this.showname = "";
-        this.icon = "";
-        this.uri = "";
-        this.goto = "";
-    }
-}
 exports.searchStr = `https://api.bilibili.com/x/web-interface/wbi/search/square`;
 function BiliHot(limits) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -32,7 +23,7 @@ function BiliHot(limits) {
             throw Error(`错误的limits,应该小于等于${maxLimits},且大于${0}`);
         }
         yield axios_1.default.get(`${exports.searchStr}?limit=${limits}`)
-            .then(e => {
+            .then((e) => {
             try {
                 ret = e.data.data.trending.list;
             }
@@ -41,7 +32,7 @@ function BiliHot(limits) {
             }
             return ret;
             // console.log(list)
-        }).catch(e => {
+        }).catch((e) => {
             throw e;
         });
         return ret;

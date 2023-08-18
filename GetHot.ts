@@ -19,7 +19,7 @@ export async function BiliHot(limits:number):Promise<aBilihot[]> {
         throw Error(`错误的limits,应该小于等于${maxLimits},且大于${0}`)
     }
     await axios.get(`${searchStr}?limit=${limits}`)
-        .then(e=>{
+        .then((e:any)=>{
             try {
                 ret = e.data.data.trending.list as unknown as aBilihot[]
             } catch (error) {
@@ -27,7 +27,7 @@ export async function BiliHot(limits:number):Promise<aBilihot[]> {
             }
             return ret
             // console.log(list)
-        }).catch(e=>{
+        }).catch((e: any)=>{
             throw e
         })
     return ret
